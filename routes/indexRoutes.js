@@ -4,9 +4,12 @@ import healthRoutes from "./healthRoutes.js";
 
 const router = Router();
 
+// Rutas genéricas. Metemos todas en un único archivo al ser un ejercicio simple.
 router.use("/", myRoutes);
+// Ruta health para autodiagnóstico.
 router.use("/health", healthRoutes);
 
+// Control de rutas no encontradas.
 router.use((req, res) => {
     res.status(404).json({
         error: "Ruta no encontrada",
@@ -15,4 +18,3 @@ router.use((req, res) => {
 });
 
 export default router;
-
